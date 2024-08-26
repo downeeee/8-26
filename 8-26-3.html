@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.js"></script>
+    <script lang="java">
+        $(function(){
+            // addClass
+            // removeClass
+            // attr( 속성값 )
+            // removeAttr()
+            // text()
+            // remove()
+            // clone( 복제 )
+            // empty()
+
+            // $("h1").addClass("item")
+
+            $("h1").addClass(function(i){
+                return 'item' + i;
+            })
+
+            $("h1").removeClass(function(i){
+                return 'item' + i
+            });
+
+            // var path = $("img").attr('src');
+
+            // $("img").attr("src" ,'animal02.png' )
+
+            var i =0;
+
+            setInterval(function(){
+                var path = $("img").attr('src');
+                console.log(path)
+
+                if(i==6){
+                    i=0
+                }else{
+                    i++;
+
+                }
+
+                n=i+1
+            $("img").attr("src" ,'img/00'+n+'.png' )
+            },3000)
+
+            var color = $(".first").css('color')
+            console.log(color)
+                $(".first").css({'color':'green','background':'yellow'})
+        })
+    </script>
+
+    <style>
+        
+
+        .first{color: red;}
+        .second{color: blue   ;}
+        .third{color: orange;}
+    </style>
+</head>
+<body>
+    <h1 class="first">header-0</h1>
+    <h1 class="second">header-1</h1>
+    <h1 class="third">header-2</h1>
+    <img src="img/001.png" alt="">
+</body>
+</html>

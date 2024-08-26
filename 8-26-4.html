@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.js"></script>
+    <script lang="java">
+        $(function(){
+        var f_color = ['red' , 'green' , 'yellow']
+
+        $('div').css('color' , function(i){
+            return f_color[i];
+        })
+
+       console.log( $('div').text('555'))
+
+        $("h1").each(function(){
+            var txt1 =$(this).attr('txt1')
+            var txt2 =$(this).attr('txt2')
+
+            $(this).hover(function(){
+                $(this).text(txt2)
+            },function(){
+                $(this).text(txt1)
+            })
+        })
+
+
+        $("img").each(function(){
+            var img1=$(this).attr('img1')
+            var img2=$(this).attr('img2')
+
+            $(this).hover(function(){
+                $(this).attr('src' , img1)
+                
+            },function(){
+                $(this).attr('src' ,img2)})
+        })
+
+
+        $("h1").first().remove()
+
+        $("h1").last().empty()
+
+        $("img").clone()
+    })
+    </script>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+
+    <h1 txt1="header1" txt2="one">header1</h1>
+    <h1 txt1="header2" txt2="two">header2</h1>
+    <h1 txt1="header3" txt2="three">header3</h1>
+    <h1 txt1="header4" txt2="four">header4</h1>
+
+    <img src="img/KIA01.JPG" alt="" img1= "img/KIA01.JPG" img2= "img/KIA02.JPG">
+</body>
+</html>

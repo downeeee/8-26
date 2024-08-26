@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.js"></script>
+    <script lang="java">
+        $(function(){
+
+            //핑터메서드
+            // 1.$(selector).filter()
+            // 2.$(selector).filter(function(){})
+
+            //h3 짝수번째 선택해서 css 배경컭러,글자컬러 바꾸기
+            //1. $("h3:even").css({color:"white" , background:"red"})
+            //2.$("h3:nth-childe(even)").css({color:"white" , background:"red"})
+
+            //filter 사용해서 바꾸기
+            //1. $("h3").filter(":even").css({"background":"red","color":"whiter"})
+            $("h3").filter(function(i){
+
+               return i % 3 == 0 // 0 1 2
+            //    0 % 3 0
+            //    1 % 3 1
+            //    2 % 3 2
+            //    3 % 3 0
+            //    4 % 3 1
+            //    5 % 3 2
+
+            }).css({"background":"red","color":"whiter"})
+
+
+
+            // $("h1").css({"background":"yellow"}).filter(":even").css("color","white")
+
+            // //end(): 문서 객체 선택을 한단계 뒤로 돌림
+            // $("h1").css({"background" : "orange"}).filter(":even").css("color","red").end()
+            // .filter(":odd").css("color","blue")
+
+
+            // eq() : 특정위치에 존재하는 문서 객체를 선택 
+            // first() : 첫번째 존재하는 문서 객체를 선택
+            // last() :마지막 존재하는 문서 객체를 선택
+
+
+            // $("h1").eq(0).css({"background":"blue"})
+            // $("h1").first().css({"background":"blue"})
+            // $("h1").last().css({"background":"blue"})
+
+            // add() :문서객체응 추가선택
+
+            $("h1").css("background", "pink").add('h2').css("float","left")
+
+            //is() 문서객체의 특징을 판별
+
+            // $("h4").each(function(i){
+
+            //     if($(this).is(".select")){
+            //         $(this).css("background","hotpink")
+
+            //     }
+            // })
+
+            //find() 자식부터 후손까지 특정 개체 선택
+
+            $("body").find("h2").css("color","blue")
+
+        })
+    </script>
+</head>
+<body>
+    <h3>header-0</h3>
+    <h3>header-1</h3>
+    <h3>header-2</h3>
+    <h3>header-3</h3>
+    <h3>header-4</h3>
+    <h3>header-5</h3>
+
+    <h1>header-0</h1>
+    <h2>h2h2h2h2</h2>
+    <h1>header-1</h1>
+    <h1>header-2</h1>
+    <h1>header-3</h1>
+    <h2>h2h2h2h2</h2>
+    <h1>header-4</h1>
+
+
+    <h4 class="select" id="kk">header-0</h4>
+    <h4>header-1</h4>
+    <h4 class="select">header-2</h4>
+</body>
+</html>
